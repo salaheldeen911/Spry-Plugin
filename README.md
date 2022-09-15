@@ -401,8 +401,8 @@ $("#test").spryValidator({
 | "Y"; "y" | Case-insensitive alpha-numeric characters |
 |"?" | Any character |
 
-### The onSuccess() method:
-Now, this is the main purpose for making this plugin, some times we want to validate inputs that are not inside a ```form``` tag as a container and use the valid data for ajax requests or some other logic code, and here comes the role of the ```onSuccess()``` method like the next example:
+### The onSuccess(event) method:
+Now, this is the main purpose for making this plugin, some times we want to validate inputs that are not inside a ```form``` tag as a container and use the valid data for ajax requests or some other logic code, and here comes the role of the ```onSuccess(event)``` method like the next example:
 #### Html
 ```
 <div id="test">
@@ -447,7 +447,9 @@ $("#test").spryValidator({
         counterId: "my_counter_span",
         hint: "Your message!"
     },
-    onSuccess: function () {
+    onSuccess: function (event) {
+        // the event param represent the submit event with all the data in case of form container and click event in case of any other container
+        console.log(event);
         console.log("All fields have passed the validation process!");
         // your code if the validation passed
         
@@ -457,6 +459,9 @@ $("#test").spryValidator({
 Here we added a key (**submitBtn**) and the value is the id of the button (as a string with # before it) that we want to link with the validation process, when the user click on that button the plugin will check if all the inputs passed the validation, if yes then your code in the ```onSuccess()``` method will be performed.
 <br>
 **Note that:** you can use the onSuccess method with the ```form``` tag as a container of your inputs to perform some logic code before submitting the form (in this case the **submitBtn** key will not be necessary).
+<br>
+**Note that:** the event param represent the submit event with all the data in case of form container and click event in case of any other container.
+
 ## More Information:
 For more information about adobe spry validation open source, you can visit these links:
 - [textfield](https://opensource.adobe.com/Spry/articles/textfield_overview/index.html)
