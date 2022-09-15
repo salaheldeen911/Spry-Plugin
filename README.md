@@ -12,6 +12,7 @@ It can validate input types like **(text, integer, email, date, time, credit_car
 ```
 **2- Including the JS files:**
 ```
+<script src="assets/js/Spry/jquery3.5.1.min.js" type="text/javascript"></script>
 <script src="assets/js/Spry/SpryValidation.js" type="text/javascript"></script>
 <script src="assets/js/Spry/SpryValidator.js" type="text/javascript"></script>
 ```
